@@ -1,0 +1,1 @@
+INSERT INTO source(name, description, url, firstacquisition, releasable) VALUES('VirusShare_00476.zip', 'VirusShare_00476.zip, 30.58 GB', 'https://virusshare.com/', '2023-07-14 18:31:51 -04:00', true);

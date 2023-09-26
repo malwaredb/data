@@ -17,7 +17,8 @@ jobs:
           sqlite3 test.db < malwaredb-rs/crates/server/src/db/malwaredb_sqlite.sql
       - name: Load sources
         run: |
-          for src in `ls sources/VirusShare/*.sql`
+          sqlite3 test.db < sources/VirusShare/VirusShare.sql
+          for src in `ls sources/VirusShare/*.zip.sql`
           do
             sqlite3 test.db < $src
           done
@@ -53,7 +54,8 @@ jobs:
           PGPASSWORD=whatever1 psql -U postgres -h 127.0.0.1 -p ${{ job.services.postgres.ports[5432] }} -d testdb -f malwaredb-rs/crates/server/src/db/malwaredb_pg.sql
       - name: Load sources
         run: |
-          for src in `ls sources/VirusShare/*.sql`
+          PGPASSWORD=whatever1 psql -U postgres -h 127.0.0.1 -p ${{ job.services.postgres.ports[5432] }} -d testdb -f sources/VirusShare/VirusShare.sql
+          for src in `ls sources/VirusShare/*.zip.sql`
           do
             PGPASSWORD=whatever1 psql -U postgres -h 127.0.0.1 -p ${{ job.services.postgres.ports[5432] }} -d testdb -f $src
           done

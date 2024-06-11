@@ -1,1 +1,1 @@
-INSERT INTO source(name, description, url, firstacquisition, releasable, parent) VALUES('VirusShare_00281.zip', 'VirusShare_00281.zip, 18.71 GB', 'https://virusshare.com/', '2017-03-05 14:19:43 -04:00', true, (select id from source where name = 'VirusShare'));
+INSERT INTO source(name, description, url, firstacquisition, releasable, malicious, parent) VALUES('VirusShare_00281.zip', 'VirusShare_00281.zip, 18.71 GB', 'https://virusshare.com/', '2017-03-05 14:19:43 -04:00', true, true, (select id from source where name = 'VirusShare'));
